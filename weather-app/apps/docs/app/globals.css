@@ -1,12 +1,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --sidebar-bg: #f9fafb;
+  --sidebar-border: #e5e7eb;
+  --link-hover: #3b82f6;
+  --code-bg: #f3f4f6;
+  --heading-color: #111827;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --sidebar-bg: #1a1a1a;
+    --sidebar-border: #2a2a2a;
+    --link-hover: #60a5fa;
+    --code-bg: #1f2937;
+    --heading-color: #f9fafb;
   }
 }
 
@@ -19,6 +29,9 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
