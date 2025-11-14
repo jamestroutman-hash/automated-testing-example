@@ -39,9 +39,21 @@ export default function GettingStartedPage() {
         <h2>Installation</h2>
         <h3>1. Clone the Repository</h3>
         <pre>
-          <code>{`git clone <repository-url>
-cd weather-app`}</code>
+          <code>{`git clone https://github.com/jamestroutman-hash/automated-testing-example.git
+cd automated-testing-example/weather-app`}</code>
         </pre>
+        <div className={styles.infoBox}>
+          <p>
+            <strong>Live Application:</strong> You can also view the running application at{" "}
+            <a
+              href="https://automated-testing-example.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://automated-testing-example.vercel.app/
+            </a>
+          </p>
+        </div>
 
         <h3>2. Install Dependencies</h3>
         <p>

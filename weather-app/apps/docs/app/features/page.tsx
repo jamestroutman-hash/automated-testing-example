@@ -33,14 +33,6 @@ export default function FeaturesPage() {
           </li>
         </ul>
 
-        <div className={styles.infoBox}>
-          <p>
-            <strong>Testing Opportunities:</strong> The dashboard provides
-            excellent scenarios for testing data rendering, empty states, error
-            handling, and date range calculations.
-          </p>
-        </div>
-
         <h3>Admin Temperature Panel</h3>
         <p>
           The admin panel allows controlled injection of test data, eliminating
@@ -70,13 +62,6 @@ export default function FeaturesPage() {
           </li>
         </ul>
 
-        <div className={styles.infoBox}>
-          <p>
-            <strong>Testing Opportunities:</strong> Form validation, error
-            handling, API integration testing, and data persistence verification.
-          </p>
-        </div>
-
         <h3>User Profile & Zipcode Configuration</h3>
         <p>
           The profile page enables users to configure their preferred zipcode,
@@ -102,13 +87,6 @@ export default function FeaturesPage() {
           <li>Enables easy test data reset</li>
           <li>Provides a realistic preference management pattern</li>
         </ul>
-
-        <div className={styles.infoBox}>
-          <p>
-            <strong>Testing Opportunities:</strong> Input validation, localStorage
-            interaction, state management, and user preference persistence.
-          </p>
-        </div>
 
         <h2>Data Management Features</h2>
 
@@ -160,14 +138,6 @@ Value: 72 (temperature in °F)`}</code>
           </li>
         </ul>
 
-        <div className={styles.infoBox}>
-          <p>
-            <strong>Testing Opportunities:</strong> Date calculations, boundary
-            conditions (today, yesterday, tomorrow), timezone handling, and edge
-            cases around date transitions.
-          </p>
-        </div>
-
         <h2>Validation Features</h2>
 
         <h3>Zipcode Validation</h3>
@@ -212,13 +182,6 @@ Value: 72 (temperature in °F)`}</code>
             <strong>Profile:</strong> Zipcode configuration
           </li>
         </ul>
-
-        <div className={styles.infoBox}>
-          <p>
-            <strong>Testing Opportunities:</strong> Navigation flows, page
-            transitions, state persistence across navigation, and routing.
-          </p>
-        </div>
 
         <h2>Error Handling</h2>
         <p>

@@ -12,6 +12,26 @@ export default function Home() {
             An interview assessment platform designed to evaluate automated
             testing skills through a realistic, well-scoped weather application.
           </p>
+          <div style={{ marginTop: "1.5rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <a
+              href="https://automated-testing-example.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.badge}
+              style={{ textDecoration: "none", cursor: "pointer", backgroundColor: "#0070f3", color: "white", padding: "0.5rem 1rem", borderRadius: "0.5rem" }}
+            >
+              🌐 Live Application
+            </a>
+            <a
+              href="https://github.com/jamestroutman-hash/automated-testing-example"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.badge}
+              style={{ textDecoration: "none", cursor: "pointer", backgroundColor: "#24292e", color: "white", padding: "0.5rem 1rem", borderRadius: "0.5rem" }}
+            >
+              📦 GitHub Repository
+            </a>
+          </div>
         </div>
 
         <h2>Overview</h2>
