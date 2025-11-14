@@ -55,3 +55,12 @@ export function getWeatherData(
   // Return all dates and temperatures for zipcode
   return dataStore[zipcode];
 }
+
+/**
+ * Clear all weather data from memory
+ */
+export function clearAllData(): void {
+  Object.keys(dataStore).forEach(key => {
+    delete dataStore[key];
+  });
+}

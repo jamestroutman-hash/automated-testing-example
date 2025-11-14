@@ -11,7 +11,7 @@
 
 /* Temperature Display */
 .temperatureValue {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-inter);
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--foreground);
@@ -21,7 +21,7 @@
 
 /* Placeholder Message - following helper text pattern from ProfileForm */
 .placeholderText {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-inter);
   font-size: 0.875rem;
   color: var(--foreground);
   opacity: 0.6;

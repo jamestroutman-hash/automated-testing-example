@@ -18,6 +18,43 @@ interface TemperatureDataPoint {
   temperature: number | null;
 }
 
+/**
+ * Calculate Y-axis domain with padding and minimum range enforcement
+ * @param data - Array of temperature data points
+ * @returns Tuple of [min, max] for Y-axis domain
+ */
+function calculateYAxisDomain(data: TemperatureDataPoint[]): [number, number] {
+  // Filter out null temperature values
+  const validTemps = data
+    .filter(d => d.temperature !== null)
+    .map(d => d.temperature as number);
+
+  // If no valid temperatures, return default range
+  if (validTemps.length === 0) {
+    return [0, 100];
+  }
+
+  // Find min and max from valid temperatures
+  let min = Math.min(...validTemps);
+  let max = Math.max(...validTemps);
+
+  // Calculate range
+  const range = max - min;
+
+  // Enforce 20-degree minimum range (centered)
+  if (range < 20) {
+    const center = (min + max) / 2;
+    min = center - 10;
+    max = center + 10;
+  }
+
+  // Add 5-degree padding
+  const domainMin = min - 5;
+  const domainMax = max + 5;
+
+  return [domainMin, domainMax];
+}
+
 export function HistoricalDataDisplay() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [temperatureData, setTemperatureData] = useState<TemperatureDataPoint[]>([]);
@@ -130,9 +167,13 @@ export function HistoricalDataDisplay() {
     );
   }
 
-  // Render graph
+  // Calculate Y-axis domain with padding and minimum range
+  const yAxisDomain = calculateYAxisDomain(temperatureData);
+
+  // Render graph with heading
   return (
     <div className={styles.container}>
+      <h2 className={styles.heading}>Past 7 Days</h2>
       <div className={styles.chartContainer}>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={temperatureData}>
@@ -142,7 +183,7 @@ export function HistoricalDataDisplay() {
               tick={{ fill: 'var(--foreground)' }}
             />
             <YAxis
-              domain={['auto', 'auto']}
+              domain={yAxisDomain}
               tick={{ fill: 'var(--foreground)' }}
             />
             <Tooltip />

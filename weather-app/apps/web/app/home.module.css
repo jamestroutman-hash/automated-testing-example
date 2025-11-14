@@ -39,7 +39,7 @@
 }
 
 .title {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-inter);
   font-size: 2rem;
   line-height: 1.2;
   font-weight: 600;

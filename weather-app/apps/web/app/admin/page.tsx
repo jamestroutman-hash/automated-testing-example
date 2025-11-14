@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WeatherForm } from "./WeatherForm";
+import { DataManagementButtons } from "./DataManagementButtons";
 import { ToastProvider } from "./ToastProvider";
 import styles from "./admin.module.css";
 
@@ -15,6 +16,7 @@ export default function AdminPage() {
         <h1 className={styles.title}>Admin Panel</h1>
         <p className={styles.description}>Enter weather data below</p>
         <WeatherForm />
+        <DataManagementButtons />
         <ToastProvider />
       </main>
     </div>

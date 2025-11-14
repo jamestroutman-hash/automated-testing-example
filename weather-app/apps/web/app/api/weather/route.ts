@@ -1,10 +1,10 @@
 /**
  * Weather API route handlers
- * Implements POST and GET endpoints for weather data storage and retrieval
+ * Implements POST, GET, and DELETE endpoints for weather data storage, retrieval, and clearing
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { storeWeatherData, getWeatherData } from './dataStore';
+import { storeWeatherData, getWeatherData, clearAllData } from './dataStore';
 import { validateWeatherData, validateZipcode, validateDate } from './validation';
 import { WeatherData } from './types';
 import { validateRequiredFields } from '../../../lib/validation';
@@ -124,6 +124,29 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ data }, { status: 200 });
   } catch (error) {
     // Handle unexpected server errors
+    return NextResponse.json(
+      {
+        errors: { server: 'An unexpected error occurred' },
+      },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * DELETE /api/weather
+ * Clear all weather data from memory
+ *
+ * @returns 200 with success message, 500 for server errors
+ */
+export async function DELETE(): Promise<NextResponse> {
+  try {
+    clearAllData();
+    return NextResponse.json(
+      { message: 'All weather data cleared successfully' },
+      { status: 200 }
+    );
+  } catch (error) {
     return NextResponse.json(
       {
         errors: { server: 'An unexpected error occurred' },
