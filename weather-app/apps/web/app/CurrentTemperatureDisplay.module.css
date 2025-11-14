@@ -1,0 +1,100 @@
+/* CurrentTemperatureDisplay Component Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 1rem;
+}
+
+/* Temperature Display */
+.temperatureValue {
+  font-family: var(--font-geist-sans);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Placeholder Message - following helper text pattern from ProfileForm */
+.placeholderText {
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  color: var(--foreground);
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(var(--gray-rgb, 0, 0, 0), 0.1);
+  border-top-color: var(--foreground);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design - Mobile (320px - 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .temperatureValue {
+    font-size: 1.75rem;
+  }
+
+  .placeholderText {
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive Design - Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .temperatureValue {
+    font-size: 2rem;
+  }
+
+  .placeholderText {
+    font-size: 0.875rem;
+  }
+}
+
+/* Responsive Design - Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .temperatureValue {
+    font-size: 2.5rem;
+  }
+
+  .placeholderText {
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .spinner {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: var(--foreground);
+  }
+}

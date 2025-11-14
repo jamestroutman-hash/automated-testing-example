@@ -1,0 +1,251 @@
+/* Profile Page Layout - Following pattern from admin.module.css */
+
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 2rem;
+  gap: 64px;
+  font-synthesis: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-row-start: 2;
+  width: 100%;
+  max-width: 600px;
+}
+
+.title {
+  font-family: var(--font-geist-sans);
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.description {
+  font-family: var(--font-geist-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+/* Form Styles */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+.input {
+  font-family: var(--font-geist-sans);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-alpha-200);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 44px; /* Touch-friendly tap target */
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 3px var(--gray-alpha-100);
+}
+
+.input:hover {
+  border-color: var(--gray-alpha-200);
+}
+
+.helperText {
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  color: var(--foreground);
+  opacity: 0.6;
+  margin-top: 0.25rem;
+}
+
+/* Error Display */
+
+.errorDisplay {
+  background: rgba(220, 38, 38, 0.1);
+  border: 2px solid rgba(220, 38, 38, 0.5);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .errorDisplay {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.6);
+  }
+}
+
+.errorTitle {
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  .errorTitle {
+    color: #ef4444;
+  }
+}
+
+.errorList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.errorItem {
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  .errorItem {
+    color: #ef4444;
+  }
+}
+
+.errorItem strong {
+  font-weight: 600;
+}
+
+/* Submit Button */
+
+.submitButton {
+  appearance: none;
+  border-radius: 8px;
+  height: 48px;
+  padding: 0 1.5rem;
+  font-family: var(--font-geist-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  min-height: 44px; /* Touch-friendly tap target */
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--button-primary-hover);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Breakpoints */
+
+/* Mobile: 320px - 768px */
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+    gap: 32px;
+  }
+
+  .main {
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .form {
+    gap: 1rem;
+  }
+
+  .input {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .submitButton {
+    height: 44px;
+    padding: 0 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page {
+    padding: 1.5rem;
+  }
+
+  .form {
+    gap: 1.25rem;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .page {
+    padding: 2rem;
+  }
+}

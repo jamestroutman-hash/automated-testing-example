@@ -48,3 +48,64 @@ a {
     display: unset;
   }
 }
+
+/* Navigation Styles */
+.mainNav {
+  background: var(--background);
+  border-bottom: 1px solid rgba(var(--foreground), 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: var(--font-geist-sans);
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navLink:hover {
+    background: rgba(var(--foreground), 0.05);
+  }
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .mainNav {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+}

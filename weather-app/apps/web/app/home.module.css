@@ -1,0 +1,106 @@
+/* Home Page Layout - Following pattern from admin.module.css and profile.module.css */
+
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 2rem;
+  gap: 64px;
+  font-synthesis: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-row-start: 2;
+  width: 100%;
+  max-width: 600px;
+}
+
+.title {
+  font-family: var(--font-geist-sans);
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.section {
+  border: 1px solid var(--gray-alpha-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--background);
+  min-height: 120px;
+  width: 100%;
+}
+
+/* Semantic class names for the three dashboard sections */
+.currentTempSection {
+  /* Current temperature section - future component integration point */
+}
+
+.historicalSection {
+  /* 7-day historical section - future component integration point */
+}
+
+.forecastSection {
+  /* 7-day forecast section - future component integration point */
+}
+
+/* Responsive Breakpoints */
+
+/* Mobile: 320px - 768px */
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+    gap: 32px;
+  }
+
+  .main {
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .page {
+    padding: 2rem;
+  }
+}
